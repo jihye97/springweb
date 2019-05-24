@@ -8,7 +8,7 @@
 <body>
 	<p>${sessionScope.MEMBER.name }님, 로그인에 성공했습니다.</p>
 	<p>
-		<a href="./">메인으로 가기</a>
+		<a href="./app/main">메인</a>
 	</p>
 </body>
 <body>
