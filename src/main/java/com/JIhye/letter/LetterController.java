@@ -20,7 +20,7 @@ public class LetterController {
 	/**
 	 * 받은 목록
 	 */
-	@GetMapping("/letter/listReceived")
+	@GetMapping("/letter/listOfReceiver")
 	public void listReceived(
 			@RequestParam(value = "page", defaultValue = "1") int page,
 			@SessionAttribute("MEMBER") Member member, Model model) {
@@ -40,7 +40,7 @@ public class LetterController {
 	/**
 	 * 보낸 목록
 	 */
-	@GetMapping("/letter/listSent")
+	@GetMapping("/letter/listOfSender")
 	public void listSent(
 			@RequestParam(value = "page", defaultValue = "1") int page,
 			@SessionAttribute("MEMBER") Member member, Model model) {

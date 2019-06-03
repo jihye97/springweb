@@ -8,20 +8,22 @@
 <body>
 	<%@ include file="/WEB-INF/jsp/header.jsp"%>
 	<h2>편지 쓰기</h2>
-	<form action="./letter/add" method="post">
-		<p>제목 :<input type="text" value=" " maxlength="100" style="width: 100%;"/> </p>
-		<p>
-			받는 사람 :<input type="text" name="receiverId" value="${param.receiverId}" 
-				required>
-			<input type="text" name="receiverName" value="${param.receiverName}"/>	
-		</p>
-		<p>내용 :</p>
-		<p>
-			<textarea name="content" style="width: 100%; height: 200px;" required></textarea>
-		</p>
-		<p>
-		<a href="./app/members?receiverId=${letter.letterId }&receiverName=${letter.name }">보내기</a>
-		</p>
-		</form>
+	<form action="./app/letter/add" method="post">
+	<p>받는사람 :
+    	<input name="receiverName" value="${param.receiverName}" type="text" readonly="readonly"/></p>
+	<p>받는사람 번호 :
+    	<input name="receiverId" value="${param.receiverId}" type="text" readonly="readonly"/></p>
+    <p>제목 :</p>
+	<p>
+		<input type="text" name="title" maxlength="100" style="width: 100%;" required>
+	</p>
+	<p>내용 :</p>
+	<p>
+		<textarea name="content" style="width: 100%; height: 200px;" required></textarea>
+	</p>
+	<p>
+		<button type="submit">등록</button>
+	</p>
+</form>
 </body>
 </html>

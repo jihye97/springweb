@@ -33,18 +33,21 @@ th {
 		<thead>
 			<tr>
 				<th>편지번호</th>
+				<th>보낸 사람 번호 </th>
+				<th>보낸 사람</th>
 				<th>제목</th>
-				<th>보낸이</th>
-				<th>받은일시</th>
+				<th>시간</th>
 			</tr>
+		
 		</thead>
 		<tbody>
-			<c:forEach var="letter" items="${listReceived}">
+			<c:forEach var="letter" items="${letters}">
 				<tr>
-					<td><a href="./app/letter/view?letterId=${letter.letterId }">${letter.letterId }</a></td>
-					<td><a href="./app/letter/view?letterId=${letter.letterId }">${letter.title }</a></td>
-					<td>${letter.name }</td>
-					<td>${letter.cdate }</td>
+					<th>${letter.letterId}</th>
+					<th>${letter.senderId}</th>
+					<th>${letter.senderName}</th>
+					<th><a href="./app/letter/view?letterId=${letter.letterId}">${letter.title}</a></th>
+					<th>${letter.cdate}</th>
 				</tr>
 			</c:forEach>
 		</tbody>
