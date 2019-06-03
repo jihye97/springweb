@@ -1,17 +1,11 @@
 package com.JIhye.book.chap11;
 
-/**
- * p.60 [리스트 3.3] Member 클래스 수정<br>
- * 회원정보 도메인 오브젝트. 회원 테이블과 매핑한다.
- * 
- * @author Jacob
- */
 public class Member {
 	String memberId; // 아이디
 	String email; // 이메일
 	String password; // 비밀번호
 	String name; // 이름
-	String cdate; // 가입일
+	String cdate; // 가입일시
 
 	/**
 	 * Default Constructor
@@ -71,6 +65,7 @@ public class Member {
 	public void setCdate(String cdate) {
 		this.cdate = cdate;
 	}
+	
 
 	@Override
 	public String toString() {
@@ -78,3 +73,4 @@ public class Member {
 				+ name + ", cdate=" + cdate + "]";
 	}
 }
+
