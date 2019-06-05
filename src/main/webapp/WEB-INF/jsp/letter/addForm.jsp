@@ -10,9 +10,9 @@
 	<h2>편지 쓰기</h2>
 	<form action="./app/letter/add" method="post">
 	<p>받는사람 :
-    	<input name="receiverName" value="${param.receiverName}" type="text" readonly="readonly"/></p>
-	<p>받는사람 번호 :
-    	<input name="receiverId" value="${param.receiverId}" type="text" readonly="readonly"/></p>
+    	<input name="receiverName" value="${param.receiverName}" type="text" readonly="readonly"/>
+	   	<input name="receiverId" value="${param.receiverId}" type="text" readonly="readonly"/>
+	   	</p>
     <p>제목 :</p>
 	<p>
 		<input type="text" name="title" maxlength="100" style="width: 100%;" required>
@@ -22,7 +22,7 @@
 		<textarea name="content" style="width: 100%; height: 200px;" required></textarea>
 	</p>
 	<p>
-		<button type="submit">등록</button>
+		<button type="submit">보내기</button>
 	</p>
 </form>
 </body>
