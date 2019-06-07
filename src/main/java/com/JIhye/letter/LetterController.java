@@ -70,9 +70,9 @@ public class LetterController {
 	}
 
 	/**
-	 * 편지 등록
+	 * 편지 저장
 	 */
-	@PostMapping("/letter/add")
+	@PostMapping("/letter/addForm")
 	public String add(Letter letter,
 			@SessionAttribute("MEMBER") Member member) {
 		letter.setSenderId(member.getMemberId());

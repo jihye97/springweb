@@ -1,9 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
+
 <html>
 <head>
 <base href="${pageContext.request.contextPath }/" />
-<title>게시판</title>
+<title>받은 편지함</title>
 <style type="text/css">
 table {
 	margin-top: 10px;
@@ -21,20 +22,21 @@ th {
 </style>
 </head>
 <body>
-	<%@ include file="/WEB-INF/jsp/header.jsp"%>
-	<h2>받은편지 목록</h2>
-	<p>전체 ${totalCount }건</p>
+<%@include file ="/WEB-INF/jsp/header.jsp" %>
+	<p>전체 ${count }건</p>
 	<form action="./app/letter/listOfReceiver">
 		<input type="number" name="page" value="${param.page }" placeholder="페이지"
-			min="1" max="${totalCount / 100 + 1 }" step="1" style="width: 50px;">
+			min="1" max="${count / 20 + 1 }" step="1" style="width: 50px;">
 		<button type="submit">조회</button>
 	</form>
+
 	<table>
 		<thead>
+			
 			<tr>
 				<th>편지번호</th>
-				<th>보낸 사람 번호 </th>
-				<th>보낸 사람</th>
+				<th>보낸 이</th>
+				<th>보낸 이 이름</th>
 				<th>제목</th>
 				<th>시간</th>
 			</tr>

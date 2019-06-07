@@ -1,11 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
-
 <html>
 <head>
 <base href="${pageContext.request.contextPath }/" />
-
-<title>편지 내용</title>
+<title>게시판</title>
 <script type="text/javascript">
 	function confirmDelete() {
 		if (confirm("삭제하시겠습니까?"))
@@ -16,23 +14,28 @@
 </script>
 </head>
 <body>
-<p>
-<a href="./app/main">[홈]</a>
-<a href="./app/letter/delete?letterId=${letter.letterId }"
-onclick="return confirmDelete();">[글삭제]</a>
-</p>
-	
-    <p>
-		<span>보낸 사람: ${letter.senderName }</span> | <span style="font-weight: bold;">번 호: ${letter.senderId }</span>|
+	<%@ include file="/WEB-INF/jsp/header.jsp"%>
+	<h2>편지 보기</h2>
+	<p>
+		<c:choose>
+			<c:when test="${param.mode == 'SENT' }">
+				<a href="./app/letter/listOfSender">목록</a>
+			</c:when>
+			<c:otherwise>
+				<a href="./app/letter/listOfReceiver">목록</a>
+			</c:otherwise>
+		</c:choose>
+		<a href="./app/letter/delete?letterId=${letter.letterId }&mode=${param.mode}"
+			onclick="return confirmDelete();">삭제</a>
+	</p>
+	<hr />
+	<p>
+		<span style="font-weight: bold;">${letter.title }</span>
 	</p>
 	<p>
-	 	<span>제 목:${letter.title }</span>
-	</p>
-	<p>
-		<span>받는 사람: ${letter.receiverName }</span>
-	</p>
-	<p>
-		<span>날 짜: ${letter.cdate }</span>
+		보낸이 : <span>${letter.senderId }</span>:<span>${letter.senderName }</span><br />
+		받는이 : <span>${letter.receiverId }</span>:<span>${letter.receiverName }</span><br />
+		보낸시간 : <span>${letter.cdate }</span>
 	</p>
 	<hr />
 	<p>${letter.contentHtml }</p>
